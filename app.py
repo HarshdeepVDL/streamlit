@@ -342,11 +342,12 @@ else:
                 left.markdown(tags_html, unsafe_allow_html=True)
 
             # Right column: primary info
-            right.markdown("**❌ Incorrect sentence**")
-            right.code(sentence or "-")
-
+            
             right.markdown("**📏 Broken rule / Reason**")
             right.write(rule or "-")
+            
+            right.markdown("**❌ Incorrect sentence**")
+            right.code(sentence or "-")
 
             right.markdown("**✅ Suggested correction(s)**")
             if suggestions:
@@ -370,5 +371,6 @@ with st.expander("📄 Show reviewed document (raw markdown) — optional", expa
         st.markdown(rv)
     else:
         st.write("No reviewed markdown in JSON.")
+
 
 
