@@ -354,7 +354,8 @@ else:
                 for s in suggestions:
                     corr = s.get("corrected_example") or s.get("correction") or ""
                     if corr:
-                        right.markdown(f"- {corr}")
+                        # right.markdown(f"- {corr}")
+                        right.code(corr or "-")
                     else:
                         right.markdown("- (no correction example provided)")
             else:
@@ -370,3 +371,4 @@ with st.expander("📄 Show reviewed document (raw markdown) — optional", expa
         st.markdown(rv)
     else:
         st.write("No reviewed markdown in JSON.")
+
