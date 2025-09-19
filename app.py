@@ -285,11 +285,10 @@ st.title(f"📘 {doc_name} — Review Summary")
 
 total = len(items)
 counts = Counter([ (it.get("status") or "unknown").lower() for it in items ])
-col1, col2, col3, col4 = st.columns([1,1,1,1])
+col1, col2, col3 = st.columns([1,1,1])
 col1.metric("Total findings", total)
 col2.metric("Red / Issue", counts.get("red", 0))
 col3.metric("Yellow / Warning", counts.get("yellow", 0))
-col4.metric("Green / Good", counts.get("green", 0))
 
 st.markdown("---")
 st.write("Showing **primary information**: Flag, Incorrect sentence, Suggested correction(s), and Broken rule.")
@@ -371,4 +370,5 @@ with st.expander("📄 Show reviewed document (raw markdown) — optional", expa
         st.markdown(rv)
     else:
         st.write("No reviewed markdown in JSON.")
+
 
